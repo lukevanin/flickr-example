@@ -54,6 +54,26 @@ public final class FlickrRESTService<Transport>: FlickrService where Transport: 
     }
     
     public func getPhotoSizes(request: FlickrPhotoSizesRequest) -> AnyPublisher<FlickrPhotoSizesResponse, Error> {
-        fatalError("not implemented")
+        transport.get(
+            path: "/",
+            parameters: [
+                URLQueryItem(
+                    name: "format",
+                    value: "json"
+                ),
+                URLQueryItem(
+                    name: "method",
+                    value: "flickr.photos.getSizes"
+                ),
+                URLQueryItem(
+                    name: "api_key",
+                    value: configuration.key
+                ),
+                URLQueryItem(
+                    name: "photo_id",
+                    value: request.id
+                ),
+            ]
+        )
     }
 }

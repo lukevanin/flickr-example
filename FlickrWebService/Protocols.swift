@@ -89,7 +89,7 @@ public struct FlickrPhotoSizesResponse: Decodable, Equatable {
             public let source: URL
             public let url: URL
         }
-        public let size: Size
+        public let size: [Size]
     }
     public let sizes: Sizes
 }
