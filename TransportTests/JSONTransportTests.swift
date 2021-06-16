@@ -55,11 +55,13 @@ extension XCTestCase {
 
 final class JSONTransportTests: XCTestCase {
     
-    private struct Sample: Codable, Equatable {
-        let userId: Int
+    private struct SamplePost: Codable, Equatable {
         let id: Int
-        let title: String
-        let completed: Bool
+    }
+    
+    private struct SampleComment: Codable, Equatable {
+        let id: Int
+        let postId: Int
     }
     
     private struct NonConformingType: Codable, Equatable {
@@ -67,34 +69,53 @@ final class JSONTransportTests: XCTestCase {
         }
         let internalType: InternalType
     }
-
     
-    #warning("TODO: Test parameter encoding")
-
-
+    private let baseURL = URL(string: "https://jsonplaceholder.typicode.com")!
+    
     ///
     /// Calling the GET method on a URL should return the deserialized contents of the response when the
     /// data matches the expected format.
     ///
-    func testGetShouldReturnContentWebRequestReturnsConformingData() throws {
-        let subject = JSONTransport(
-            url: URL(string: "https://jsonplaceholder.typicode.com")!
-        )
-        let expected = Sample(
-            userId: 1,
-            id: 1,
-            title: "delectus aut autem",
-            completed: false
-        )
-        let result = try wait(for: subject.get(Sample.self, path: "/todos/1"))
+    func testGetShouldReturnContentWhenRequestReturnsConformingData() throws {
+        let subject = JSONTransport(url: baseURL)
+        let expected = SamplePost(id: 1)
+        let result = try wait(for: subject.get(SamplePost.self, path: "/todos/1"))
         XCTAssertEqual(expected, result)
+    }
+    
+    ///
+    /// Calling the GET method on a URL with a query parameter should return the deserialized contents of
+    /// the response when the response conforms to the expected type.
+    ///
+    func testGetShouldReturnContentWhenRequestWithQueryParameterReturnsConformingData() throws {
+        let subject = JSONTransport(url: baseURL)
+        let expected = [
+            SampleComment(id: 1, postId: 1),
+            SampleComment(id: 2, postId: 1),
+            SampleComment(id: 3, postId: 1),
+            SampleComment(id: 4, postId: 1),
+            SampleComment(id: 5, postId: 1),
+        ]
+        let request = subject.get([SampleComment].self, path: "/comments", parameters: [URLQueryItem(name: "postId", value: "1")])
+        let result = try wait(for: request)
+        XCTAssertEqual(expected, result)
+    }
+    
+    ///
+    /// Calling the GET method on a URL with a query parameter should fail when the response does not
+    /// conforms to the expected type
+    ///
+    func testGetShouldFailWhenRequestWithQueryParameterReturnsNonconformingData() throws {
+        let subject = JSONTransport(url: baseURL)
+        let request = subject.get([NonConformingType].self, path: "/comments", parameters: [URLQueryItem(name: "postId", value: "1")])
+        XCTAssertThrowsError(try wait(for: request))
     }
 
     ///
     /// Calling the GET method on a URL should return an error when the data returned by the URL does
     /// not match the expected format.
     ///
-    func testGetShouldFailWhenWebRequestReturnsNonConformingData() throws {
+    func testGetShouldFailWhenRequestReturnsNonConformingData() throws {
         let subject = JSONTransport(
             url: URL(string: "https://jsonplaceholder.typicode.com")!
         )
@@ -104,10 +125,10 @@ final class JSONTransportTests: XCTestCase {
     ///
     /// Calling the GET method on a URL should fail if the URL resource does not exist.
     ///
-    func testGetShouldFailWhenWebRequestCallsNonexistingURL() {
+    func testGetShouldFailWhenRequestCallsNonexistingURL() {
         let subject = JSONTransport(
             url: URL(string: "https://nowhere.example.org")!
         )
-        XCTAssertThrowsError(try wait(for: subject.get(Sample.self, path: "/todos/1")))
+        XCTAssertThrowsError(try wait(for: subject.get(SamplePost.self, path: "/todos/1")))
     }
 }
