@@ -18,7 +18,7 @@ public final class MockTransport: RESTTransport {
     var decoder: JSONDecoder = JSONDecoder()
     var mockGet: Get?
     
-    public func get<T>(path: String, parameters: [URLQueryItem]) -> AnyPublisher<T, Error> where T : Decodable {
+    public func get<T>(_ type: T.Type, path: String, parameters: [URLQueryItem]) -> AnyPublisher<T, Error> where T : Decodable {
         serialize() { [mockGet] in
             try mockGet!(path, parameters)
         }
