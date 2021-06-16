@@ -28,7 +28,7 @@ public final class JSONTransport: RESTTransport {
         self.decoder = decoder
     }
     
-    public func get<T>(_ type: T.Type, path: String, parameters: [URLQueryItem] = []) -> AnyPublisher<T, Error> where T : Decodable {
+    public func get<T>(path: String, parameters: [URLQueryItem] = []) -> AnyPublisher<T, Error> where T : Decodable {
         session
             .dataTaskPublisher(
                 for: makeGetRequest(
@@ -49,7 +49,7 @@ public final class JSONTransport: RESTTransport {
         components.queryItems = parameters
         #warning("TODO: Handle URL serialization error")
         let requestURL = components.url!
-        var request = URLRequest(url: requestURL)
+        let request = URLRequest(url: requestURL)
         return request
     }
 }

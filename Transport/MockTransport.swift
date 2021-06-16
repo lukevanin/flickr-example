@@ -13,12 +13,16 @@ import Combine
 ///
 public final class MockTransport: RESTTransport {
     
-    typealias Get = (_ path: String, _ parameters: [URLQueryItem]) throws -> String
+    public typealias Get = (_ path: String, _ parameters: [URLQueryItem]) throws -> String
 
-    var decoder: JSONDecoder = JSONDecoder()
-    var mockGet: Get?
+    public var decoder: JSONDecoder = JSONDecoder()
+    public var mockGet: Get?
     
-    public func get<T>(_ type: T.Type, path: String, parameters: [URLQueryItem]) -> AnyPublisher<T, Error> where T : Decodable {
+    public init() {
+        
+    }
+    
+    public func get<T>(path: String, parameters: [URLQueryItem]) -> AnyPublisher<T, Error> where T : Decodable {
         serialize() { [mockGet] in
             try mockGet!(path, parameters)
         }

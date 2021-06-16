@@ -23,7 +23,12 @@ public struct FlickrError: Error {
 ///
 /// See: https://www.flickr.com/services/api/flickr.photos.search.html
 ///
-public struct FlickrPhotosRequest {
+public struct FlickrPhotosRequest: Equatable {
+    
+    ///
+    /// The page of results to return. 
+    ///
+    public var page: Int = 1
     
     ///
     /// A comma-delimited list of tags. Photos with one or more of the tags listed will be returned. You can
@@ -38,9 +43,9 @@ public struct FlickrPhotosRequest {
 ///
 /// See: https://www.flickr.com/services/api/flickr.photos.search.html
 ///
-public struct FlickrPhotosResponse: Decodable {
-    public struct Photos: Decodable {
-        public struct Photo: Decodable {
+public struct FlickrPhotosResponse: Decodable, Equatable {
+    public struct Photos: Decodable, Equatable {
+        public struct Photo: Decodable, Equatable {
             public let id: String
         }
         public let page: Int
@@ -57,7 +62,7 @@ public struct FlickrPhotosResponse: Decodable {
 ///
 /// See: https://www.flickr.com/services/api/flickr.photos.getSizes.html
 ///
-public struct FlickrPhotoSizesRequest {
+public struct FlickrPhotoSizesRequest: Equatable {
     
     ///
     /// Identifier of the photo which you want sizes for.
@@ -71,10 +76,10 @@ public struct FlickrPhotoSizesRequest {
 ///
 /// See: https://www.flickr.com/services/api/flickr.photos.getSizes.html
 ///
-public struct FlickrPhotoSizesResponse: Decodable {
-    public struct Sizes: Decodable {
-        public struct Size: Decodable {
-            public enum Label: String, Decodable {
+public struct FlickrPhotoSizesResponse: Decodable, Equatable {
+    public struct Sizes: Decodable, Equatable {
+        public struct Size: Decodable, Equatable {
+            public enum Label: String, Decodable, Equatable {
                 case largeSquare = "Large Square"
                 case large = "Large"
             }
@@ -93,7 +98,7 @@ public struct FlickrPhotoSizesResponse: Decodable {
 ///
 /// API for interacting with the Flickr web service.
 ///
-public protocol FlickrWebService {
+public protocol FlickrService {
     
     ///
     /// Returns a list of photos matching some criteria. Only photos visible to the calling user will be
@@ -105,12 +110,12 @@ public protocol FlickrWebService {
     ///
     /// See: https://www.flickr.com/services/api/flickr.photos.search.html
     ///
-    func getPhotos(request: FlickrPhotosRequest) -> AnyPublisher<FlickrPhotosResponse, FlickrError>
+    func getPhotos(request: FlickrPhotosRequest) -> AnyPublisher<FlickrPhotosResponse, Error>
     
     ///
     /// Returns the available sizes for a photo. The calling user must have permission to view the photo.
     ///
     /// See: https://www.flickr.com/services/api/flickr.photos.getSizes.html
     ///
-    func getPhotoSizes(request: FlickrPhotoSizesRequest) -> AnyPublisher<FlickrPhotoSizesResponse, FlickrError>
+    func getPhotoSizes(request: FlickrPhotoSizesRequest) -> AnyPublisher<FlickrPhotoSizesResponse, Error>
 }

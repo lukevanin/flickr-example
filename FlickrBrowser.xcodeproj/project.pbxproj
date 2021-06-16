@@ -17,7 +17,7 @@
 		FC0E6BCB2679CBC800998A98 /* FlickrWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0E6BC42679CBC800998A98 /* FlickrWebService.framework */; };
 		FC0E6BCC2679CBC800998A98 /* FlickrWebService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC0E6BC42679CBC800998A98 /* FlickrWebService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC0E6BD22679D64800998A98 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E6BD12679D64800998A98 /* Protocols.swift */; };
-		FC0E6BDA267A154800998A98 /* FlickrWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E6BD9267A154800998A98 /* FlickrWebServiceTests.swift */; };
+		FC0E6BDA267A154800998A98 /* FlickrRESTServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E6BD9267A154800998A98 /* FlickrRESTServiceTests.swift */; };
 		FC0E6BDC267A154800998A98 /* FlickrWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0E6BC42679CBC800998A98 /* FlickrWebService.framework */; };
 		FC0E6BF2267A16A600998A98 /* Transport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0E6BE9267A16A600998A98 /* Transport.framework */; };
 		FC0E6BFB267A16A600998A98 /* Transport.h in Headers */ = {isa = PBXBuildFile; fileRef = FC0E6BEB267A16A600998A98 /* Transport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +27,9 @@
 		FC0E6C09267A17AC00998A98 /* JSONTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E6C08267A17AC00998A98 /* JSONTransport.swift */; };
 		FC0E6C0B267A189B00998A98 /* JSONTransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E6C0A267A189B00998A98 /* JSONTransportTests.swift */; };
 		FC0E6C0D267A1B3100998A98 /* MockTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E6C0C267A1B3100998A98 /* MockTransport.swift */; };
+		FC0E6C0F267A323C00998A98 /* FlickrRESTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E6C0E267A323C00998A98 /* FlickrRESTService.swift */; };
+		FC0E6C11267A34EB00998A98 /* Transport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0E6BE9267A16A600998A98 /* Transport.framework */; };
+		FC0E6C12267A34EB00998A98 /* Transport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC0E6BE9267A16A600998A98 /* Transport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,13 @@
 			remoteGlobalIDString = FC0E6BE8267A16A600998A98;
 			remoteInfo = Transport;
 		};
+		FC0E6C13267A34EB00998A98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC0E6B832679C78400998A98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC0E6BE8267A16A600998A98;
+			remoteInfo = Transport;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +100,17 @@
 			files = (
 				FC0E6BFF267A16A600998A98 /* Transport.framework in Embed Frameworks */,
 				FC0E6BCC2679CBC800998A98 /* FlickrWebService.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC0E6C15267A34EB00998A98 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FC0E6C12267A34EB00998A98 /* Transport.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,7 +134,7 @@
 		FC0E6BC72679CBC800998A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC0E6BD12679D64800998A98 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		FC0E6BD7267A154800998A98 /* FlickrWebServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickrWebServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC0E6BD9267A154800998A98 /* FlickrWebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrWebServiceTests.swift; sourceTree = "<group>"; };
+		FC0E6BD9267A154800998A98 /* FlickrRESTServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrRESTServiceTests.swift; sourceTree = "<group>"; };
 		FC0E6BDB267A154800998A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC0E6BE9267A16A600998A98 /* Transport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Transport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC0E6BEB267A16A600998A98 /* Transport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transport.h; sourceTree = "<group>"; };
@@ -124,6 +145,7 @@
 		FC0E6C08267A17AC00998A98 /* JSONTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTransport.swift; sourceTree = "<group>"; };
 		FC0E6C0A267A189B00998A98 /* JSONTransportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTransportTests.swift; sourceTree = "<group>"; };
 		FC0E6C0C267A1B3100998A98 /* MockTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTransport.swift; sourceTree = "<group>"; };
+		FC0E6C0E267A323C00998A98 /* FlickrRESTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrRESTService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC0E6C11267A34EB00998A98 /* Transport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +210,7 @@
 				FC0E6BEA267A16A600998A98 /* Transport */,
 				FC0E6BF7267A16A600998A98 /* TransportTests */,
 				FC0E6B8C2679C78400998A98 /* Products */,
+				FC0E6C10267A34EB00998A98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,6 +254,7 @@
 			children = (
 				FC0E6BC62679CBC800998A98 /* FlickrWebService.h */,
 				FC0E6BD12679D64800998A98 /* Protocols.swift */,
+				FC0E6C0E267A323C00998A98 /* FlickrRESTService.swift */,
 				FC0E6BC72679CBC800998A98 /* Info.plist */,
 			);
 			path = FlickrWebService;
@@ -238,7 +263,7 @@
 		FC0E6BD8267A154800998A98 /* FlickrWebServiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				FC0E6BD9267A154800998A98 /* FlickrWebServiceTests.swift */,
+				FC0E6BD9267A154800998A98 /* FlickrRESTServiceTests.swift */,
 				FC0E6BDB267A154800998A98 /* Info.plist */,
 			);
 			path = FlickrWebServiceTests;
@@ -263,6 +288,13 @@
 				FC0E6BFA267A16A600998A98 /* Info.plist */,
 			);
 			path = TransportTests;
+			sourceTree = "<group>";
+		};
+		FC0E6C10267A34EB00998A98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,10 +365,12 @@
 				FC0E6BC02679CBC800998A98 /* Sources */,
 				FC0E6BC12679CBC800998A98 /* Frameworks */,
 				FC0E6BC22679CBC800998A98 /* Resources */,
+				FC0E6C15267A34EB00998A98 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FC0E6C14267A34EB00998A98 /* PBXTargetDependency */,
 			);
 			name = FlickrWebService;
 			productName = FlickrWebService;
@@ -526,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC0E6C0F267A323C00998A98 /* FlickrRESTService.swift in Sources */,
 				FC0E6BD22679D64800998A98 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,7 +569,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC0E6BDA267A154800998A98 /* FlickrWebServiceTests.swift in Sources */,
+				FC0E6BDA267A154800998A98 /* FlickrRESTServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +628,11 @@
 			isa = PBXTargetDependency;
 			target = FC0E6BE8267A16A600998A98 /* Transport */;
 			targetProxy = FC0E6BFC267A16A600998A98 /* PBXContainerItemProxy */;
+		};
+		FC0E6C14267A34EB00998A98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC0E6BE8267A16A600998A98 /* Transport */;
+			targetProxy = FC0E6C13267A34EB00998A98 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

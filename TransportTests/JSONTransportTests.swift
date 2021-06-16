@@ -79,7 +79,8 @@ final class JSONTransportTests: XCTestCase {
     func testGetShouldReturnContentWhenRequestReturnsConformingData() throws {
         let subject = JSONTransport(url: baseURL)
         let expected = SamplePost(id: 1)
-        let result = try wait(for: subject.get(SamplePost.self, path: "/todos/1"))
+        let operation = subject.get(SamplePost.self, path: "/todos/1")
+        let result = try wait(for: operation)
         XCTAssertEqual(expected, result)
     }
     
@@ -96,8 +97,8 @@ final class JSONTransportTests: XCTestCase {
             SampleComment(id: 4, postId: 1),
             SampleComment(id: 5, postId: 1),
         ]
-        let request = subject.get([SampleComment].self, path: "/comments", parameters: [URLQueryItem(name: "postId", value: "1")])
-        let result = try wait(for: request)
+        let operation = subject.get([SampleComment].self, path: "/comments", parameters: [URLQueryItem(name: "postId", value: "1")])
+        let result = try wait(for: operation)
         XCTAssertEqual(expected, result)
     }
     
