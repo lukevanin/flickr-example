@@ -20,6 +20,20 @@
                ReferencedContainer = "container:FlickrBrowser.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FC0E6BD6267A154800998A98"
+               BuildableName = "FlickrWebServiceTests.xctest"
+               BlueprintName = "FlickrWebServiceTests"
+               ReferencedContainer = "container:FlickrBrowser.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -35,6 +49,16 @@
                BlueprintIdentifier = "FC0E6BA02679C78400998A98"
                BuildableName = "FlickrBrowserTests.xctest"
                BlueprintName = "FlickrBrowserTests"
+               ReferencedContainer = "container:FlickrBrowser.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FC0E6BD6267A154800998A98"
+               BuildableName = "FlickrWebServiceTests.xctest"
+               BlueprintName = "FlickrWebServiceTests"
                ReferencedContainer = "container:FlickrBrowser.xcodeproj">
             </BuildableReference>
          </TestableReference>
