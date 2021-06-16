@@ -62,6 +62,16 @@
                ReferencedContainer = "container:FlickrBrowser.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FC0E6BF0267A16A600998A98"
+               BuildableName = "TransportTests.xctest"
+               BlueprintName = "TransportTests"
+               ReferencedContainer = "container:FlickrBrowser.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
