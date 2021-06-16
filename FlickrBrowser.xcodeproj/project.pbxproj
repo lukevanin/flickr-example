@@ -30,6 +30,9 @@
 		FC0E6C0F267A323C00998A98 /* FlickrRESTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E6C0E267A323C00998A98 /* FlickrRESTService.swift */; };
 		FC0E6C11267A34EB00998A98 /* Transport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0E6BE9267A16A600998A98 /* Transport.framework */; };
 		FC0E6C12267A34EB00998A98 /* Transport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC0E6BE9267A16A600998A98 /* Transport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FC0E6C17267A3FC000998A98 /* FlickrRESTServiceIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E6C16267A3FC000998A98 /* FlickrRESTServiceIntegrationTests.swift */; };
+		FC0E6C19267A3FE000998A98 /* XCTestCaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E6C18267A3FE000998A98 /* XCTestCaseExtensions.swift */; };
+		FC0E6C1C267A3FFB00998A98 /* XCTestCaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E6C1A267A3FF900998A98 /* XCTestCaseExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +149,9 @@
 		FC0E6C0A267A189B00998A98 /* JSONTransportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTransportTests.swift; sourceTree = "<group>"; };
 		FC0E6C0C267A1B3100998A98 /* MockTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTransport.swift; sourceTree = "<group>"; };
 		FC0E6C0E267A323C00998A98 /* FlickrRESTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrRESTService.swift; sourceTree = "<group>"; };
+		FC0E6C16267A3FC000998A98 /* FlickrRESTServiceIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrRESTServiceIntegrationTests.swift; sourceTree = "<group>"; };
+		FC0E6C18267A3FE000998A98 /* XCTestCaseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtensions.swift; sourceTree = "<group>"; };
+		FC0E6C1A267A3FF900998A98 /* XCTestCaseExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +270,8 @@
 			isa = PBXGroup;
 			children = (
 				FC0E6BD9267A154800998A98 /* FlickrRESTServiceTests.swift */,
+				FC0E6C16267A3FC000998A98 /* FlickrRESTServiceIntegrationTests.swift */,
+				FC0E6C18267A3FE000998A98 /* XCTestCaseExtensions.swift */,
 				FC0E6BDB267A154800998A98 /* Info.plist */,
 			);
 			path = FlickrWebServiceTests;
@@ -285,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				FC0E6C0A267A189B00998A98 /* JSONTransportTests.swift */,
+				FC0E6C1A267A3FF900998A98 /* XCTestCaseExtensions.swift */,
 				FC0E6BFA267A16A600998A98 /* Info.plist */,
 			);
 			path = TransportTests;
@@ -569,7 +578,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC0E6C19267A3FE000998A98 /* XCTestCaseExtensions.swift in Sources */,
 				FC0E6BDA267A154800998A98 /* FlickrRESTServiceTests.swift in Sources */,
+				FC0E6C17267A3FC000998A98 /* FlickrRESTServiceIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC0E6C0B267A189B00998A98 /* JSONTransportTests.swift in Sources */,
+				FC0E6C1C267A3FFB00998A98 /* XCTestCaseExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

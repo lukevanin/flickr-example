@@ -18,7 +18,7 @@ public final class JSONTransport: RESTTransport {
     private let session: URLSession
     private let decoder: JSONDecoder
     
-    init(
+    public init(
         url: URL,
         session: URLSession = .shared,
         decoder: JSONDecoder = JSONDecoder()

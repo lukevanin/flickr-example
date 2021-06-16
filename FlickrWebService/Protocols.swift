@@ -80,14 +80,25 @@ public struct FlickrPhotoSizesResponse: Decodable, Equatable {
     public struct Sizes: Decodable, Equatable {
         public struct Size: Decodable, Equatable {
             public enum Label: String, Decodable, Equatable {
+                case original = "Original"
+                case thumbnail = "Thumbnail"
+                case square = "Square"
+                case small = "Small"
+                case small320 = "Small 320"
+                case small400 = "Small 400"
+                case medium = "Medium"
+                case medium640 = "Medium 640"
+                case medium800 = "Medium 800"
                 case largeSquare = "Large Square"
                 case large = "Large"
+                case large1600 = "Large 1600"
+                case extraLarge = "X-Large"
             }
-            public let label: Label?
+            public let label: Label
             public let width: Int
             public let height: Int
-            public let source: URL
-            public let url: URL
+            public let source: String
+            public let url: String
         }
         public let size: [Size]
     }
