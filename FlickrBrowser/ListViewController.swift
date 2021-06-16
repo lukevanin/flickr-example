@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ListViewController.swift
 //  FlickrBrowser
 //
 //  Created by Luke Van In on 2021/06/16.
@@ -7,13 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemPurple
     }
-
 
 }
 
