@@ -62,6 +62,12 @@ final class JSONTransportTests: XCTestCase {
         let completed: Bool
     }
     
+    private struct NonConformingType: Codable, Equatable {
+        struct InternalType: Codable, Equatable {
+        }
+        let internalType: InternalType
+    }
+
     
     #warning("TODO: Test parameter encoding")
 
@@ -70,7 +76,7 @@ final class JSONTransportTests: XCTestCase {
     /// Calling the GET method on a URL should return the deserialized contents of the response when the
     /// data matches the expected format.
     ///
-    func testGetShouldReturnContentWebRequestReturnsMatchingData() throws {
+    func testGetShouldReturnContentWebRequestReturnsConformingData() throws {
         let subject = JSONTransport(
             url: URL(string: "https://jsonplaceholder.typicode.com")!
         )
@@ -88,14 +94,20 @@ final class JSONTransportTests: XCTestCase {
     /// Calling the GET method on a URL should return an error when the data returned by the URL does
     /// not match the expected format.
     ///
-    func testGetShouldFailWhenWebRequestReturnsNonMatchingData() {
-        XCTFail("Not implemented")
+    func testGetShouldFailWhenWebRequestReturnsNonConformingData() throws {
+        let subject = JSONTransport(
+            url: URL(string: "https://jsonplaceholder.typicode.com")!
+        )
+        XCTAssertThrowsError(try wait(for: subject.get(NonConformingType.self, path: "/todos/1")))
     }
     
     ///
     /// Calling the GET method on a URL should fail if the URL resource does not exist.
     ///
     func testGetShouldFailWhenWebRequestCallsNonexistingURL() {
-        XCTFail("Not implemented")
+        let subject = JSONTransport(
+            url: URL(string: "https://nowhere.example.org")!
+        )
+        XCTAssertThrowsError(try wait(for: subject.get(Sample.self, path: "/todos/1")))
     }
 }
